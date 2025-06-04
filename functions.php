@@ -223,5 +223,11 @@ function my_theme_enqueue_assets() {
         $asset_file['version'],
         true
     );
+	wp_enqueue_style(
+    'my-theme-style',
+    get_template_directory_uri() . '/build/index.css',
+    array(),
+    filemtime(get_template_directory() . '/build/index.css')
+);
 }
 add_action('wp_enqueue_scripts', 'my_theme_enqueue_assets');

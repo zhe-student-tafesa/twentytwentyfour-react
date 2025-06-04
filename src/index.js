@@ -1,4 +1,4 @@
-import "./styles/main.scss"
+import './styles/global.css';
 import Person from "./scripts/Person"
 import ExampleReactComponent from "./scripts/ExampleReactComponent"
 import React from "react"
