@@ -204,3 +204,24 @@ if ( ! function_exists( 'twentytwentyfour_pattern_categories' ) ) :
 endif;
 
 add_action( 'init', 'twentytwentyfour_pattern_categories' );
+// Frank 2024: add code
+function my_theme_enqueue_assets() {
+    // F1. Make sure React and ReactDOM are loaded when they come with WordPress
+    wp_enqueue_script('react');
+    wp_enqueue_script('react-dom');
+
+    // F2. Compatible with react-jsx-runtime dependency when using automatic JSX runtime
+    wp_register_script('react-jsx-runtime', false, array('react'), null, true);
+
+    // F3. Load the built script and automatically read the dependency information
+    $asset_file = include get_template_directory() . '/build/index.asset.php';
+
+    wp_enqueue_script(
+        'my-theme-react-bundle',
+        get_template_directory_uri() . '/build/index.js',
+        $asset_file['dependencies'],
+        $asset_file['version'],
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'my_theme_enqueue_assets');
