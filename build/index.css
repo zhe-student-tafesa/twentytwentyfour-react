@@ -2,19 +2,19 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./src/styles/global.css ***!
   \***************************************************************************************************************************************************************************/
 :root {
-  --primary-color: #2d7cf1;
+  --primary-color: #0b1c3d;
   --secondary-color: #ff0077;
 }
 
 body {
-  background-color: yellowgreen;
+  /* background-color: yellowgreen; */
 }
 /*!********************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./src/styles/example-react-component.css ***!
   \********************************************************************************************************************************************************************************************/
 .example-react-component {
   margin: 15px 0;
-  background-color: var(--primary-color);
+  /* background-color: var(--primary-color); */
   color: #ffffff;
   padding: 20px;
   border-radius: 5px;

@@ -1,8 +1,8 @@
 :root {
-  --primary-color: #2d7cf1;
+  --primary-color: #0b1c3d;
   --secondary-color: #ff0077;
 }
 
 body {
-  background-color: yellowgreen;
+  /* background-color: yellowgreen; */
 }
