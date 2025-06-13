@@ -1,41 +1,41 @@
-import React, { useEffect, useRef } from 'react';
-import Chart from 'chart.js/auto';
+import React, { useEffect, useRef } from "react";
+import Chart from "chart.js/auto";
 
 const ChartDemo = () => {
   const chartRef = useRef(null);
   const chartInstanceRef = useRef(null); // Used to save Chart instances to prevent repeated rendering
   useEffect(() => {
-    const data = [
-      { year: 2010, count: 10 },
-      { year: 2011, count: 20 },
-      { year: 2012, count: 15 },
-      { year: 2013, count: 25 },
-      { year: 2014, count: 22 },
-      { year: 2015, count: 30 },
-      { year: 2016, count: 28 },
-    ];
+    const data = {
+      labels: ["January", "February", "March", "April"],
+      datasets: [
+        {
+          type: "bar",
+          label: "Bar Dataset",
+          data: [10, 20, 30, 40],
+          borderColor: "rgb(255, 99, 132)",
+          backgroundColor: "rgba(255, 99, 132, 0.2)",
+        },
+        {
+          type: "line",
+          label: "Line Dataset",
+          data: [50, 50, 50, 55],
+          fill: false,
+          borderColor: "rgb(54, 162, 235)",
+        },
+      ],
+    };
 
     if (chartInstanceRef.current) {
       chartInstanceRef.current.destroy();
     }
 
     chartInstanceRef.current = new Chart(chartRef.current, {
-      type: 'bar',
-      data: {
-        labels: data.map(row => row.year),
-        datasets: [
-          {
-            label: 'Acquisitions by year',
-            data: data.map(row => row.count),
-            backgroundColor: 'rgba(75, 192, 192, 0.5)',
-          },
-        ],
-      },
+      type: "scatter",
+      data: data,
       options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'top',
+        scales: {
+          y: {
+            beginAtZero: true,
           },
         },
       },
@@ -50,7 +50,7 @@ const ChartDemo = () => {
   }, []);
 
   return (
-    <div style={{ width: '800px' }}>
+    <div style={{ width: "800px" }}>
       <canvas ref={chartRef}></canvas>
     </div>
   );
